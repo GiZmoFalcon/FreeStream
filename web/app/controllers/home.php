@@ -9,6 +9,4 @@ class Home extends Controller{
         parent::view('home',$data);
     }
 
-
-
 }
