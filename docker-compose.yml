@@ -1,0 +1,32 @@
+#Author: Nandan Desai
+version: "2"
+services:
+    db:
+        image: mariadb:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+        volumes:
+            - ./database:/var/lib/mysql
+    phpmyadmin:
+        image: phpmyadmin/phpmyadmin:latest
+        environment:
+            - PMA_HOST=db
+        restart: always
+        ports:
+            - 8000:80
+        links:
+            - db:db
+    web:
+        build: .
+        # The :Z flag at the end is for SELinux permissions
+        volumes:
+            - ./web:/var/www/html:Z
+            - ./logs/error.log:/var/log/apache2/error.log
+            - ./config_files/000-default.conf:/etc/apache2/sites-available/000-default.conf
+            - ./config_files/apache2.conf:/etc/apache2/apache2.conf
+        links:
+            - db
+        ports:
+            - 8080:80
+        security_opt:
+            - label:disable
