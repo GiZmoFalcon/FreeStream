@@ -12,16 +12,37 @@
     <script src="/resources/semantic/dist/semantic.min.js"></script>
     <script type="text/javascript" src="/resources/js/ui.js"></script>
     <link rel='stylesheet' type='text/css' href="/resources/css/ui.css">
+
 </head>
 <body>
-	<div class="ui sidebar">
-	...
+	<div class="ui sidebar inverted vertical menu">
+		<div>
+			<a class="item" onclick="toggleFunction()">
+				<i class="angle left icon"></i>
+			</a>
+		</div>
+		<div>
+			<a class="item" onclick="toggleFunction()">
+				1
+			</a>
+		</div>
+		<div>
+			<a class="item" onclick="toggleFunction()">
+				2
+			</a>
+		</div>
 	</div>
-	<div class="ui top fixed menu">
-	...
+	<div class="ui top fixed inverted menu row">
+	<a class="item" onclick="toggleFunction()">
+    <i class="sidebar icon"></i></a>
 	</div>
-	<div class="pusher">
-	Your site's actual content
+	<div class="ui pusher" style="padding-top: 55px; padding-left: 1.4rem;">
+		<div class="ui grid">
+
+				1sfsfsdfdsfdsfdsfdsYour site's actuafgffffffffffffffffffffdl content
+
+			
+		</div>			
 	</div>
 </body>
 </html>
