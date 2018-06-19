@@ -41,7 +41,7 @@ class App{
         ////////////////////////////////////////////////////////////////
         // check if the controller file exists
         ///////////////////////////////////////////////////////////////
-        if(file_exists('../app/controllers/'.$url[0].'.php')){
+        if(file_exists($_SERVER['DOCUMENT_ROOT'].'/app/controllers/'.$url[0].'.php')){
             $controller=$url[0];
         }
 
@@ -50,7 +50,7 @@ class App{
         // if the controller is not available, then we already have set 
         // 'home' as default controller.
         ///////////////////////////////////////////////////////////////
-        require_once '../app/controllers/'.$controller.'.php';
+        require_once $_SERVER['DOCUMENT_ROOT'].'/app/controllers/'.$controller.'.php';
         
         $controllerObj=new $controller();
         
